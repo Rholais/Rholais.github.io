@@ -11,7 +11,7 @@
     <meta name="author" content="LI Haocheng" />
 
     <link href="../../css/impress-demo.css" rel="stylesheet" />
-    <link href="css/voice-share.css" rel="stylesheet" />
+    <link href="css/cone-beam-ct.css" rel="stylesheet" />
     
     <link rel="shortcut icon" href="favicon.png" />
     <link rel="apple-touch-icon" href="apple-touch-icon.png" />
@@ -25,81 +25,84 @@
 </div>
 
 <div id="impress">
-
-    <div id="loss" class="step slide" data-x="-1000" data-y="-1500">
+	
+	<div id="loss" class="step slide" data-x="-1000" data-y="-1500">
 		<div class="describe">
-			<q>参观展览感到<strong>摸不到头脑</strong>？</q>
+			<q>图像产生<strong>伪影</strong>严重影响重建？</q>
 		</div>
-    </div>
-
-    <div id="express" class="step slide" data-x="0" data-y="-1500">
+	</div>
+	
+	<div id="express" class="step slide" data-x="0" data-y="-1500">
 		<div class="describe">
-			<q>
-				面对展品<strong>灵感突现</strong>却无法<strong>及时</strong>捕捉？
-			</q>
+			<q>安装难以避免<strong>几何偏差</strong>？</q>
 		</div>
-    </div>
-
-    <div id="share" class="step slide" data-x="1000" data-y="-1500">
+	</div>
+	
+	<div id="share" class="step slide" data-x="1000" data-y="-1500">
 		<div class="describe">
-			<q>希望把<strong>独到见解</strong>分享给他人？</q>
+			<q>希望体模投影<strong>超分辨率</strong>坐标？</q>
 		</div>
-    </div>
-
-    <div id="title" class="step" data-x="0" data-y="0" data-scale="4">
-        <span class="try">来尝试一下</span>
-        <h1>谈笑风生<sup>*</sup></h1>
-        <span class="footnote"><sup>*</sup> by Wallace</span>
-    </div>
-
-    <div id="author" class="step slide" data-x="850" data-y="3000" data-rotate="90" data-scale="3">
-        <q>Wallace成员（字典序）</q>
+	</div>
+	
+	<div id="title" class="step" data-x="0" data-y="0" data-scale="4">
+	    <span class="try">锥束微计算机断层成像的</span>
+	    <h1>精确几何标定<sup>*</sup></h1>
+	    <span class="footnote"><sup>*</sup> 学生：李浩成；指导教师：洪伟博士</span>
+	</div>
+	
+	<div id="author" class="step slide" data-x="850" data-y="3000" data-rotate="90" data-scale="3">
+	    <q>项目设计的主要工作和进展</q>
 		<p><br /></p>
-		<table>
-			<tr>
-				<td>任然</td>
-				<td>后端开发</td>		
-			</tr>
-			<tr>
-				<td>李浩成</td>
-				<td>前端开发</td>		
-			</tr>
-			<tr>
-				<td>张中伟</td>
-				<td>界面设计</td>
-			</tr>
-			<tr>
-				<td>张炜康</td>
-				<td>前端设计</td>		
-			</tr>
-
-		</table>
-    </div>
-
-    <div id="us" class="step slide" data-x="850" data-y="3000" data-z="-10" data-rotate="90" data-rotate-x="-180"  data-scale="3">
+		<ol>
+			<li>
+				查阅课题相关资料
+				<ol type="a">
+					<li>
+						摄像机标定
+						<ol type="i">
+							<li>Zhengyou Zhang两篇开创性论文</li>
+							<li>其OpenCV实现</li>
+							<li>光学领域数篇畸变相关外文论文</li>
+						</ol>
+					</li>
+					<li>
+						几何校正
+						<ol type="i">
+							<li>相关国际标准</li>
+							<li>阅读三十余篇相关外文论文</li>
+							<li>精读其中相关性较高的十余篇</li>
+						</ol>
+					</li>
+				</ol>
+			</li>
+			<li>学习相关算法原理</li>
+		</ol>
+	</div>
+	
+	<div id="us" class="step slide" data-x="850" data-y="3000" data-z="-10" data-rotate="90" data-rotate-x="-180"  data-scale="3">
 		<img src="../img/us.png" />
-    </div>
-
-    <div id="arch" class="step slide" data-x="-2150" data-y="3000" data-z="10" data-rotate="90" data-rotate-x="-180" data-scale="3">
+	</div>
+	
+	<div id="arch" class="step slide" data-x="-2150" data-y="3000" data-z="10" data-rotate="90" data-rotate-x="-180" data-scale="3">
 		<q>架构</q>
 		<p><br /></p>
-        <img src="../img/arch/arch.png" /> 
-    </div>
-
+	    <img src="../img/arch/arch.png" /> 
+	</div>
 	
-    <div id="goal" class="step" data-x="-4150" data-y="3000" data-z="10" data-rotate="90" data-rotate-x="-180" data-scale="3">
+	
+	<div id="goal" class="step" data-x="-4150" data-y="3000" data-z="10" data-rotate="90" data-rotate-x="-180" data-scale="3">
 		<q>完成目标</q>
 		<p><br /></p>
-        <ul style="list-style-type:disc">
+	    <ul style="list-style-type:disc">
 			<li>扫码加载对应展品链接</li>
 			<li>分享语音</li>
 			<li>聆听他人语音</li>
 		</ul>  
-    </div>
-
+	</div>
 	
-    <div id="overview" class="step" data-x="0" data-y="700" data-scale="8">
-    </div>
+	
+	<div id="overview" class="step" data-x="0" data-y="700" data-scale="8">
+	</div>
 
 </div>
 

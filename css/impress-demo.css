@@ -265,13 +265,14 @@ a:focus {
 }
 
 #title h1 {
-    font-size: 120px;
+	font-size: 120px;
+	line-height: 200%;
 
-    -webkit-transform: translateZ(50px);
-    -moz-transform:    translateZ(50px);
-    -ms-transform:     translateZ(50px);
-    -o-transform:      translateZ(50px);
-    transform:         translateZ(50px);
+	-webkit-transform: translateZ(50px);
+	-moz-transform:    translateZ(50px);
+	-ms-transform:     translateZ(50px);
+	-o-transform:      translateZ(50px);
+	transform:         translateZ(50px);
 }
 
 #title .footnote {
@@ -513,12 +514,17 @@ a:focus {
     to be able to click on other steps.
 
 */
+#start { display: none }
 #overview { display: none }
 
 /*
     We also make other steps visible and give them a pointer cursor using the
     `impress-on-` class.
 */
+.impress-on-start .step {
+    opacity: 1;
+    cursor: pointer;
+}
 .impress-on-overview .step {
     opacity: 1;
     cursor: pointer;

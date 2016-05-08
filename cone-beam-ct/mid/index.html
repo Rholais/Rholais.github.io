@@ -192,16 +192,27 @@ end
 					<li>
 						计算机仿真
 						<ol type="i">
-							<li>使用Matlab R2016a搭建仿真环境</li>
+							<li>使用Matlab R2016a，Python 3.5.1搭建仿真环境</li>
 							<li>图像像素密度取每平方毫米100像素</li>
-							<li>
-								钢珠投影数据叠加噪声<br />
-								\[N(0, 1)\]
-							</li>
-							<li>取120000组随机生成的数据</li>
-							<li>每组运行时间1/3秒以内</li>
-							<li>相对误差1/30以内</li>
+							<li>钢珠投影数据叠加噪声\(N(0, 1)\)</li>
+							<li>取20000组训练数据，1000组测试数据</li>
 						</ol>
+					</li>
+				</ol>
+			</li>
+		</ol>
+	</div>
+	
+	<div id="error" class="step slide" data-x="-2150" data-y="3500" data-z="-500" data-rotate="90" data-rotate-x="-270" data-scale="1">
+	    <q>毕业设计的主要工作和进展</q>
+		<p><br /></p>
+		<ol start="4">
+			<li>
+				设计并完成算法
+				<ol type="a" start="4">
+					<li>
+						误差分析
+						<img src="../img/err.svg" height="350" style="margin:auto;display:block">
 					</li>
 				</ol>
 			</li>
@@ -240,13 +251,14 @@ if ("ontouchstart" in document.documentElement) {
 <script src="../../js/impress.js"></script>
 <script src="../../js/prism.js"></script>
 <script src="../../js/x3dom.js"></script>
-<script type="text/javascript"  
-	src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "all" } }
+});
 </script>
 <script type="text/javascript"  
-	src="../../js/mathjax-config.js">
+	src="../../MathJax/MathJax.js?config=TeX-AMS_HTML">
 </script>
-
 <script>impress().init();</script>
 
 </body>

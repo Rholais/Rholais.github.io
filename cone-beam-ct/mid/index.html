@@ -1,0 +1,324 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>cone-beam-ct | Geometric calibration of cone-beam CT with random phantom | by LI Haocheng</title>
+    
+    <meta name="description" content="I am a tool for geometric calibration of cone-beam CT with random phantom." />
+    <meta name="author" content="LI Haocheng" />
+
+    <link href="../../css/impress-demo.css" rel="stylesheet" />
+    <link href="../../css/prism.css" rel="stylesheet" />
+    <link href="css/cone-beam-ct.css" rel="stylesheet" />
+    
+    <link rel="shortcut icon" href="favicon.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+</head>
+
+<body class="impress-not-supported">
+
+<div class="fallback-message">
+    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
+
+<div id="impress">
+	
+	<div id="loss" class="step slide" data-x="-1000" data-y="-1500">
+		<div class="describe">
+			<q>图像产生<strong>伪影</strong>严重影响重建？</q>
+		</div>
+	</div>
+	
+	<div id="express" class="step slide" data-x="0" data-y="-1500">
+		<div class="describe">
+			<q>安装难以避免<strong>几何偏差</strong>？</q>
+		</div>
+	</div>
+	
+	<div id="share" class="step slide" data-x="1000" data-y="-1500">
+		<div class="describe">
+			<q>希望体模投影<strong>超分辨率</strong>坐标？</q>
+		</div>
+	</div>
+	
+	<div id="title" class="step" data-x="0" data-y="0" data-scale="4">
+	    <span class="try">基于核岭回归的CBCT</span>
+	    <h1>随机体模标定<sup>*</sup></h1>
+	    <span class="footnote"><sup>*</sup> 学生：李浩成；指导教师：洪伟博士</span>
+	</div>
+	
+	<div id="scholar" class="step slide" data-x="850" data-y="1000" data-rotate="90" data-scale="1">
+	    <q>项目设计的主要工作和进展</q>
+		<p><br /></p>
+		<ol>
+			<li>
+				查阅课题相关资料
+				<ol type="a">
+					<li>
+						摄像机标定
+						<ol type="i">
+							<li>Zhengyou Zhang两篇开创性论文</li>
+							<li>其OpenCV实现</li>
+							<li>光学领域数篇畸变相关外文论文</li>
+						</ol>
+					</li>
+					<li>
+						几何校正
+						<ol type="i">
+							<li>相关国际标准</li>
+							<li>阅读三十余篇相关外文论文</li>
+							<li>精读其中相关性较高的十余篇</li>
+						</ol>
+					</li>
+				</ol>
+			</li>
+		</ol>
+	</div>
+	
+	<div id="algorithm" class="step slide" data-x="850" data-y="2000" data-rotate="90" data-scale="1">
+	    <q>项目设计的主要工作和进展</q>
+		<p><br /></p>
+		<ol start="2">
+			<li>
+				学习相关算法原理
+				<ol type="a">
+					<li>
+						图像平面标定算法
+						<ol type="i">
+							<li>Zhang算法并没有精确标定</li>
+							<li>光学手段不能满足需求</li>
+							<li>部分文献忽略难以求解参数</li>
+							<li>部分文献代数过程出现奇点</li>
+							<li>部分文献优化不当</li>
+						</ol>
+					</li>
+					<li>
+						稀疏字典学习算法
+						<ol type="i">
+							<li>线性代数观点理解</li>
+							<li>实现基本功能</li>
+						</ol>
+					</li>
+				</ol>
+			</li>
+		</ol>
+	</div>
+
+	<div id="matlab" class="step slide" data-x="850" data-y="3000" data-rotate="90" data-scale="1">
+		<q>项目设计的主要工作和进展</q>
+		<p><br /></p>
+		<ol start="3">
+			<li>
+				学习和掌握Matlab语言
+				<ol type="a">
+					<li>利用矩阵运算并行化</li>
+					<li>利用面向对象特性提高代码质量</li>
+				</ol>
+			</li>
+		</ol>
+		<pre style="height:300px;font-size:15px"><code class="language-matlab">
+classdef Plane < handle
+	%PLANE A class of plane
+	%   To descibe a plane's origin and normal.
+	
+	properties (GetAccess = public, SetAccess = private, SetObservable)
+		Ori = zeros(3, 1);
+		
+		Ang = zeros(1, 3);
+		Rot = eye(3);
+		
+		Scl = ones(1, 3);
+	end
+	
+	methods (Access = public)
+		function obj = Plane(ori, ang, scl)
+			addlistener(obj, 'Ang', 'PostSet', @obj.onAngChange);
+			addlistener(obj, 'Scl', 'PostSet', @obj.onSclChange);
+			
+			obj.Ori = ori;
+			obj.Ang = ang;
+			obj.Scl(1:2) = scl;
+		end
+		
+		function phtAbs = abs(obj, phtChs)
+			phtAbs = [obj.Rot(:, 1:2), obj.Ori] * [phtChs; ones(1, size(phtChs, 2))]; 
+		end
+		        
+		function dtcAbs = prj(obj, phtAbs, srcAbs)
+			dtcAbs = ones(3, 1) * ((obj.Rot(:, 3)' * (obj.Ori * ones(1, size(phtAbs, 2)) - srcAbs)) ./ (obj.Rot(:, 3)' * (phtAbs - srcAbs))) .* (phtAbs - srcAbs) + srcAbs;
+		end
+		
+		function phtChs = chs(obj, phtAbs)
+			phtChs = diag([1, 1, 0]) * ([obj.Rot(:, 1:2), obj.Ori] \ phtAbs);
+		end
+	end
+	
+	methods (Access = private)
+		function onAngChange(obj, ~, ~)
+			r = Plane.rot(obj.Ang(1), obj.Ang(2), obj.Ang(3));
+			obj.Rot = r * diag(obj.Scl);
+		end
+		
+		function onSclChange(obj, metaProp, eventData)
+			obj.Scl(3) = obj.Scl(1) * obj.Scl(2);
+			obj.onAngChange(metaProp, eventData);
+		end
+	end
+	
+	methods (Access = public, Static)
+		function r = rot(pitch, roll, yaw)
+			r = roty(roll) * rotx(pitch) * rotz(yaw);
+		end
+		
+		function phtChs = prjChs(obj, dtc, dtcChs)
+			dtcAbs = dtc.abs(dtcChs);
+			phtAbs = obj.prjAbs(dtcAbs);
+			phtChs = obj.chs(phtAbs);
+		end
+	end
+end
+		</code></pre>
+	</div>
+	
+	<div id="phantom" class="step slide" data-x="850" data-y="4000" data-rotate="90" data-scale="1">
+	    <q>项目设计的主要工作和进展</q>
+		<p><br /></p>
+		<ol start="4">
+			<li>
+				设计并完成初步算法
+				<ol type="a">
+					<li>标定体模</li>
+				</ol>
+			</li>
+		</ol>
+		<img src="../img/pht.svg" height="300" style="margin:auto;display:block">
+	</div>
+	
+	<div id="origin" class="step slide" data-x="850" data-y="4500" data-z="-500" data-rotate="90" data-rotate-x="-90" data-scale="1">
+	    <q>项目设计的主要工作和进展</q>
+		<p><br /></p>
+		<ol start="4">
+			<li>
+				设计并完成初步算法
+				<ol type="a">
+					<li>标定体模</li>
+				</ol>
+			</li>
+		</ol>
+		<img src="../img/org.svg" height="300" style="margin:auto;display:block">
+	</div>
+	
+	<div id="z" class="step slide" data-x="850" data-y="4000" data-z="-1000" data-rotate="90" data-rotate-x="-180" data-scale="1">
+	    <q>项目设计的主要工作和进展</q>
+		<p><br /></p>
+		<ol start="4">
+			<li>
+				设计并完成初步算法
+				<ol type="a">
+					<li>标定体模</li>
+				</ol>
+			</li>
+		</ol>
+		<img src="../img/zax.svg" height="300" style="margin:auto;display:block">
+	</div>
+	
+	<div id="center" class="step slide" data-x="850" data-y="3500" data-z="-500" data-rotate="90" data-rotate-x="-270" data-scale="1">
+	    <q>项目设计的主要工作和进展</q>
+		<p><br /></p>
+		<ol start="4">
+			<li>
+				设计并完成初步算法
+				<ol type="a">
+					<li>标定体模</li>
+				</ol>
+			</li>
+		</ol>
+		<img src="../img/cnt.svg" height="300" style="margin:auto;display:block">
+	</div>
+	
+	<div id="procedure" class="step slide" data-x="-150" data-y="3500" data-z="-500" data-rotate="90" data-rotate-x="-270" data-scale="1">
+	    <q>项目设计的主要工作和进展</q>
+		<p><br /></p>
+		<ol start="4">
+			<li>
+				设计并完成初步算法
+				<ol type="a" start="2">
+					<li>标定过程</li>
+				</ol>
+			</li>
+		</ol>
+		<img src="../img/mat.svg" height="300" style="margin:auto;display:block">
+	</div>
+	
+	<div id="simulate" class="step slide" data-x="-1150" data-y="3500" data-z="-500" data-rotate="90" data-rotate-x="-270" data-scale="1">
+	    <q>项目设计的主要工作和进展</q>
+		<p><br /></p>
+		<ol start="4">
+			<li>
+				设计并完成初步算法
+				<ol type="a" start="3">
+					<li>
+						计算机仿真
+						<ol type="i">
+							<li>使用Matlab R2015b搭建仿真环境</li>
+							<li>图像像素密度取每平方毫米100像素</li>
+							<li>
+								钢珠投影数据叠加噪声<br />
+								\[N(0, 1)\]
+							</li>
+							<li>取120000组随机生成的数据</li>
+							<li>每组运行时间1/3秒以内</li>
+							<li>相对误差1/30以内</li>
+						</ol>
+					</li>
+				</ol>
+			</li>
+		</ol>
+	</div>
+	
+	<div id="reference" class="step slide" data-x="-1150" data-y="3000" data-z="0" data-rotate="0" data-rotate-x="-180" data-scale="1">
+	    <q>参考文献</q>
+		<p><br /></p>
+		<ol>
+			<li><em>Flexible Camera Calibration By Viewing a Plane From Unknown Orientations</em></li>
+			<li><em>An Advanced Reduction and Calibration for Photogrammetric Cameras</em></li>
+			<li><em>Decentering Distortion of Lenses</em></li>
+			<li><em>Accurate Technique for Complete Geometric Calibration of Cone-Beam Computed Tomography Systems</em></li>
+			<li><em>A Geometric Calibration Method for Cone Beam CT Systems</em></li>
+			<li><em>Geometric Calibration for a Dual Tube/Detector Micro-CT System</em></li>
+		</ol>
+		<p>获取本演示文稿：<a href="https://rholais.github.io/cone-beam-ct/about/" target="_blank">rholais.github.io/cone-beam-ct/about</a></p>
+	</div>
+	
+	
+	<div id="overview" class="step" data-x="0" data-y="1000" data-scale="9">
+	</div>
+
+</div>
+
+<div class="hint">
+    <p>Use a spacebar or arrow keys to navigate</p>
+</div>
+<script>
+if ("ontouchstart" in document.documentElement) { 
+    document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
+}
+</script>
+
+<script src="../../js/impress.js"></script>
+<script src="../../js/prism.js"></script>
+<script type="text/javascript"  
+	src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+<script type="text/javascript"  
+	src="../../js/mathjax-config.js">
+</script>
+
+<script>impress().init();</script>
+
+</body>
+</html>

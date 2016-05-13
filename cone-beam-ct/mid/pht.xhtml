@@ -60,6 +60,15 @@
 							</Shape>
 						</transform>
 					</Group>
+					<Transform id="marker" scale=".15 .15 .15" translation="100 0 0">
+						<Shape>
+							<Appearance>
+								<Material diffuseColor="#FFD966"></Material>
+							</Appearance>
+							<Sphere></Sphere>
+						</Shape>
+					</Transform>
+
 					<timeSensor DEF="time" cycleInterval="2" loop="true"> </timeSensor>
 					<PositionInterpolator DEF="move" key="0 0.5 1" keyValue="0 0 0  0 3 0  0 0 0"> </PositionInterpolator>    
 					<Route fromNode="time" fromField ="fraction_changed" toNode="move" toField="set_fraction"> </Route>
@@ -70,7 +79,7 @@
 				<h3>Last clicked object:</h3> 
 				<span id="lastClickedObject">-</span>
 				
-				<br><br>
+				<br /><br />
 				
 				<h3>Click coordinates:</h3>
 				<table style="font-size:1em;">

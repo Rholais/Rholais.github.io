@@ -2,11 +2,12 @@
 <!DOCTYPE>
 <html>
 <head>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-  <title>HTML Events on 3D objects</title>
-  <script type='text/javascript' src='http://www.x3dom.org/download/x3dom.js'> </script>
-  <link rel='stylesheet' type='text/css' href='http://www.x3dom.org/download/x3dom.css'/>
-
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<title>HTML Events on 3D objects</title>
+	<script type='text/javascript' src='http://www.x3dom.org/download/x3dom.js'> </script>
+	<script type='text/javascript' src='https://code.jquery.com/jquery-2.2.3.min.js'></script>
+	<link rel='stylesheet' type='text/css' href='http://www.x3dom.org/download/x3dom.css'/>
+	
 	<script>
 		//Round a float value to x.xx format
 		function roundWithTwoDecimals(value)
@@ -34,15 +35,15 @@
 			$('#lastClickedObject').html($(shape).attr("def"));
 		}
 	
-  	$(document).ready(function(){
-  		//Add a onclick callback to every shape
-  		$("shape").each(function() {
-  			$(this).attr("onclick", "handleSingleClick(this)");
-  		});
-  	});
-  </script>
-  </head>
-  <body>
+	  $(document).ready(function(){
+	  	//Add a onclick callback to every shape
+	  	$("shape").each(function() {
+	  		$(this).attr("onclick", "handleSingleClick(this)");
+	  	});
+	  });
+	</script>
+	</head>
+	<body>
 		<X3D xmlns="http://www.web3d.org/specifications/x3d-namespace" showStat="false" showLog="false" x="0px" y="0px" width="300px" height="300px">
 			<Scene>
 				<Viewpoint position="0.0000 0.0000 150.0000" orientation="0.0000 0.0000 1.0000 0.0000"/>

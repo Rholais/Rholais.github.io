@@ -1,47 +1,45 @@
-
 <!DOCTYPE>
 <html>
-<head>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-	<title>HTML Events on 3D objects</title>
-	<script type='text/javascript' src='http://www.x3dom.org/download/x3dom.js'> </script>
-	<script type='text/javascript' src='https://code.jquery.com/jquery-2.2.3.min.js'></script>
-	<link rel='stylesheet' type='text/css' href='http://www.x3dom.org/download/x3dom.css'/>
-	
-	<script>
-		//Round a float value to x.xx format
-		function roundWithTwoDecimals(value)
-		{
-			return (Math.round(value * 100)) / 100;
-		}
-		
-		//Handle click on any group member
-		function handleGroupClick(event)
-		{
-			//Mark hitting point
-			$('#marker').attr('translation', event.hitPnt);
-			console.log(event);
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+		<title>HTML Events on 3D objects</title>
+		<script type='text/javascript' src='http://www.x3dom.org/download/x3dom.js'> </script>
+		<link rel='stylesheet' type='text/css' href='http://www.x3dom.org/download/x3dom.css'/>
+		<script type='text/javascript' src='https://code.jquery.com/jquery-2.1.0.min.js'></script>
+		<script>
+			//Round a float value to x.xx format
+			function roundWithTwoDecimals(value)
+			{
+				return (Math.round(value * 100)) / 100;
+			}
 			
-			//Display coordinates of hitting point (rounded)
-			var coordinates = event.hitPnt;
-			$('#coordX').html(roundWithTwoDecimals(coordinates[0]));
-			$('#coordY').html(roundWithTwoDecimals(coordinates[1]));
-			$('#coordZ').html(roundWithTwoDecimals(coordinates[2]));
-		}
+			//Handle click on any group member
+			function handleGroupClick(event)
+			{
+				//Mark hitting point
+				$('#marker').attr('translation', event.hitPnt);
+				console.log(event);
+				
+				//Display coordinates of hitting point (rounded)
+				var coordinates = event.hitPnt;
+				$('#coordX').html(roundWithTwoDecimals(coordinates[0]));
+				$('#coordY').html(roundWithTwoDecimals(coordinates[1]));
+				$('#coordZ').html(roundWithTwoDecimals(coordinates[2]));
+			}
+			
+			//Handle click on a shape
+			function handleSingleClick(shape)
+			{
+				$('#lastClickedObject').html($(shape).attr("def"));
+			}
 		
-		//Handle click on a shape
-		function handleSingleClick(shape)
-		{
-			$('#lastClickedObject').html($(shape).attr("def"));
-		}
-	
-	  $(document).ready(function(){
-	  	//Add a onclick callback to every shape
-	  	$("shape").each(function() {
-	  		$(this).attr("onclick", "handleSingleClick(this)");
-	  	});
-	  });
-	</script>
+		  $(document).ready(function(){
+			//Add a onclick callback to every shape
+			$("shape").each(function() {
+				$(this).attr("onclick", "handleSingleClick(this)");
+			});
+		  });
+		</script>
 	</head>
 	<body>
 		<X3D xmlns="http://www.web3d.org/specifications/x3d-namespace" showStat="false" showLog="false" x="0px" y="0px" width="300px" height="300px">

@@ -21,3 +21,34 @@ So you now have an executable file (in this case main) and you want to debug it.
     This GDB was configured as "sparc-sun-solaris2.7"...
     (gdb)
 
+gdb is now waitng for the user to type a command. We need to run the program so that the debugger can help us see what happens when the program crashes. Type run at the (gdb) prompt. Here is what happens when I run this command:
+
+    (gdb) run
+    Starting program: /home/cec/s/a/agg1/.www-docs/tutorial/main 
+    Creating Node, 1 are in existence right now
+    Creating Node, 2 are in existence right now
+    Creating Node, 3 are in existence right now
+    Creating Node, 4 are in existence right now
+    The fully created list is:
+    4
+    3
+    2
+    1
+
+    Now removing elements:
+    Creating Node, 5 are in existence right now
+    Destroying Node, 4 are in existence right now
+    4
+    3
+    2
+    1
+
+
+    Program received signal SIGSEGV, Segmentation fault.
+    Node<int>::next (this=0x0) at main.cc:28
+    28	  Node<T>* next () const { return next_; }
+    (gdb)
+
+The program crashed so lets see what kind of information we can gather.
+
+

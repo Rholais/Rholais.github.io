@@ -193,18 +193,26 @@ Before a bug can be fixed, the source of the bug must be located. For example, w
 <p>Go ahead and make the program for this tutorial, and run the program. The program will print out some messages, and then it will print that it has received a segmentation fault signal, resulting in a program crash. Given the information on the screen at this point, it is near impossible to determine why the program crashed, much less how to fix the problem. We will now begin to debug this program.</p>
 <h2 id="loading-a-program">Loading a program</h2>
 <p>So you now have an executable file (in this case main) and you want to debug it. First you must launch the debugger. The debugger is called gdb and you can tell it which file to debug at the shell prompt. So to debug main we want to type gdb main. Here is what it looks like when I run it:</p>
-<pre><code>agg1@sukhoi agg1/.www-docs/tutorial&gt; gdb main
-GNU gdb 4.18
-Copyright 1998 Free Software Foundation, Inc.
-GDB is free software, covered by the GNU General Public License, and you are
-welcome to change it and/or distribute copies of it under certain conditions.
-Type &quot;show copying&quot; to see the conditions.
-There is absolutely no warranty for GDB.  Type &quot;show warranty&quot; for details.
-This GDB was configured as &quot;sparc-sun-solaris2.7&quot;...
-(gdb)
-</code></pre><p>gdb is now waitng for the user to type a command. We need to run the program so that the debugger can help us see what happens when the program crashes. Type run at the (gdb) prompt. Here is what happens when I run this command:</p>
-<pre><code>(gdb) run
-Starting program: /home/cec/s/a/agg1/.www-docs/tutorial/main 
+<pre><code>hcli@mint-VirtualBox ~/Projects/Rholais.github.io/csci3150/gdb/src $ gdb main
+GNU gdb (Ubuntu 7.11.1-0ubuntu1~16.04) 7.11.1
+Copyright (C) 2016 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later &lt;http://gnu.org/licenses/gpl.html&gt;
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type &quot;show copying&quot;
+and &quot;show warranty&quot; for details.
+This GDB was configured as &quot;x86_64-linux-gnu&quot;.
+Type &quot;show configuration&quot; for configuration details.
+For bug reporting instructions, please see:
+&lt;http://www.gnu.org/software/gdb/bugs/&gt;.
+Find the GDB manual and other documentation resources online at:
+&lt;http://www.gnu.org/software/gdb/documentation/&gt;.
+For help, type &quot;help&quot;.
+Type &quot;apropos word&quot; to search for commands related to &quot;word&quot;...
+Reading symbols from main...done.
+(gdb) 
+</code></pre><p>gdb is now waitng for the user to type a command. We need to run the program so that the debugger can help us see what happens when the program crashes. Type <code>run</code> or <code>r</code> at the (gdb) prompt. Here is what happens when I run this command:</p>
+<pre><code>(gdb) r
+Starting program: /home/hcli/Projects/Rholais.github.io/csci3150/gdb/src/main 
 Creating Node, 1 are in existence right now
 Creating Node, 2 are in existence right now
 Creating Node, 3 are in existence right now
@@ -225,11 +233,18 @@ Destroying Node, 4 are in existence right now
 
 
 Program received signal SIGSEGV, Segmentation fault.
-Node&lt;int&gt;::next (this=0x0) at main.cc:28
-28      Node&lt;T&gt;* next () const { return next_; }
+0x0000000000401014 in Node&lt;int&gt;::next (this=0x0) at main.cpp:34
+34        Node&lt;T&gt;* next() const { return next_; }
 (gdb)
 </code></pre><p>The program crashed so lets see what kind of information we can gather.</p>
-
+<h2 id="inspecting-crashes">Inspecting crashes</h2>
+<p>So already we can see the that the program was at line 34 of main.cpp, that this points to <code>0x0</code>, and we can see the line of code that was executed. But we also want to know who called this method and we would like to be able to examine values in the calling methods. So at the <code>gdb</code> prompt, we type <code>backtrace</code> or <code>bt</code> which gives me the following output:</p>
+<pre><code>(gdb) bt
+#0  0x0000000000401014 in Node&lt;int&gt;::next (this=0x0) at main.cpp:34
+#1  0x0000000000400f2e in LinkedList&lt;int&gt;::remove (this=0x614c20, item_to_remove=@0x7fffffffddfc: 1) at main.cpp:83
+#2  0x0000000000400bd6 in main (argc=1, argv=0x7fffffffdf08) at main.cpp:126
+(gdb) 
+</code></pre>
                                 
                                 </section>
                             
@@ -272,7 +287,7 @@ Node&lt;int&gt;::next (this=0x0) at main.cc:28
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Debugging","level":"1.3","depth":1,"next":{"title":"Further Information","level":"1.4","depth":1,"path":"infor.md","ref":"infor.md","articles":[]},"previous":{"title":"Preparations","level":"1.2","depth":1,"path":"prepa.md","ref":"prepa.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"debug.md","mtime":"2017-01-10T05:31:53.361Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-01-10T05:33:00.905Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Debugging","level":"1.3","depth":1,"next":{"title":"Further Information","level":"1.4","depth":1,"path":"infor.md","ref":"infor.md","articles":[]},"previous":{"title":"Preparations","level":"1.2","depth":1,"path":"prepa.md","ref":"prepa.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"debug.md","mtime":"2017-01-10T10:56:08.780Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-01-10T10:59:03.728Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

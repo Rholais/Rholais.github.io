@@ -11,20 +11,28 @@ Go ahead and make the program for this tutorial, and run the program. The progra
 
 So you now have an executable file (in this case main) and you want to debug it. First you must launch the debugger. The debugger is called gdb and you can tell it which file to debug at the shell prompt. So to debug main we want to type gdb main. Here is what it looks like when I run it:
 
-    agg1@sukhoi agg1/.www-docs/tutorial> gdb main
-    GNU gdb 4.18
-    Copyright 1998 Free Software Foundation, Inc.
-    GDB is free software, covered by the GNU General Public License, and you are
-    welcome to change it and/or distribute copies of it under certain conditions.
-    Type "show copying" to see the conditions.
-    There is absolutely no warranty for GDB.  Type "show warranty" for details.
-    This GDB was configured as "sparc-sun-solaris2.7"...
-    (gdb)
+    hcli@mint-VirtualBox ~/Projects/Rholais.github.io/csci3150/gdb/src $ gdb main
+    GNU gdb (Ubuntu 7.11.1-0ubuntu1~16.04) 7.11.1
+    Copyright (C) 2016 Free Software Foundation, Inc.
+    License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+    This is free software: you are free to change and redistribute it.
+    There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+    and "show warranty" for details.
+    This GDB was configured as "x86_64-linux-gnu".
+    Type "show configuration" for configuration details.
+    For bug reporting instructions, please see:
+    <http://www.gnu.org/software/gdb/bugs/>.
+    Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+    For help, type "help".
+    Type "apropos word" to search for commands related to "word"...
+    Reading symbols from main...done.
+    (gdb) 
 
-gdb is now waitng for the user to type a command. We need to run the program so that the debugger can help us see what happens when the program crashes. Type run at the (gdb) prompt. Here is what happens when I run this command:
+gdb is now waitng for the user to type a command. We need to run the program so that the debugger can help us see what happens when the program crashes. Type `run` or `r` at the (gdb) prompt. Here is what happens when I run this command:
 
-    (gdb) run
-    Starting program: /home/cec/s/a/agg1/.www-docs/tutorial/main 
+    (gdb) r
+    Starting program: /home/hcli/Projects/Rholais.github.io/csci3150/gdb/src/main 
     Creating Node, 1 are in existence right now
     Creating Node, 2 are in existence right now
     Creating Node, 3 are in existence right now
@@ -45,10 +53,20 @@ gdb is now waitng for the user to type a command. We need to run the program so 
 
 
     Program received signal SIGSEGV, Segmentation fault.
-    Node<int>::next (this=0x0) at main.cc:28
-    28	  Node<T>* next () const { return next_; }
+    0x0000000000401014 in Node<int>::next (this=0x0) at main.cpp:34
+    34		Node<T>* next() const { return next_; }
     (gdb)
 
 The program crashed so lets see what kind of information we can gather.
+
+##  Inspecting crashes
+
+So already we can see the that the program was at line 34 of main.cpp, that this points to `0x0`, and we can see the line of code that was executed. But we also want to know who called this method and we would like to be able to examine values in the calling methods. So at the `gdb` prompt, we type `backtrace` or `bt` which gives me the following output:
+
+    (gdb) bt
+    #0  0x0000000000401014 in Node<int>::next (this=0x0) at main.cpp:34
+    #1  0x0000000000400f2e in LinkedList<int>::remove (this=0x614c20, item_to_remove=@0x7fffffffddfc: 1) at main.cpp:83
+    #2  0x0000000000400bd6 in main (argc=1, argv=0x7fffffffdf08) at main.cpp:126
+    (gdb) 
 
 

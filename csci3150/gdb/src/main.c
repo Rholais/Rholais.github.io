@@ -11,22 +11,23 @@
 // http://students.cec.wustl.edu/~agg1/tutorial/
 
 #include <stdio.h>
+#include <stdlib.h>
 
 int number_instantiated = 0;
 
 struct Node {
 	int value_;
-	Node<T> *next_;
+	struct Node *next_;
 };
 
 
 struct LinkedList {
-	Node *head_;
+	struct Node *head_;
 };
 
 // returns 0 on success, -1 on failure
-int insert(LinkedList *l, const int &new_item) {
-	Node *n = malloc(sizeof(Node));
+int insert(struct LinkedList *l, const int new_item) {
+	struct Node *n = malloc(sizeof(struct Node));
 	if(!n) { return -1; }
 	++number_instantiated;
 	n->next_ = l->head_;
@@ -36,9 +37,9 @@ int insert(LinkedList *l, const int &new_item) {
 }
 
 // returns 0 on success, -1 on failure
-int remove(LinkedList *l, const int &item_to_remove) {
-	Node *marker = l->head_;
-	Node *temp = NULL;  // temp points to one behind as we iterate
+int remove_item(struct LinkedList *l, const int item_to_remove) {
+	struct Node *marker = l->head_;
+	struct Node *temp = NULL;  // temp points to one behind as we iterate
 
 	while(marker) {
 		if(marker->value_ == item_to_remove) {
@@ -49,7 +50,7 @@ int remove(LinkedList *l, const int &item_to_remove) {
 					--number_instantiated;
 					marker = NULL;
 				} else {
-					Node *n = malloc(sizeof(Node));
+					struct Node *n = malloc(sizeof(struct Node));
 					if(!n) { return -1; }
 					++number_instantiated;
 					n->next_ = marker->next_;
@@ -77,18 +78,18 @@ int remove(LinkedList *l, const int &item_to_remove) {
 	return -1;	// failure
 }
 
-void print(LinkedList *l) {
-	Node *marker = l->head_;
+void print(struct LinkedList *l) {
+	struct Node *marker = l->head_;
 	while(marker) {
 		printf("%d\n", marker->value_);
 		marker = marker->next_;
 	}
 }
 
-void delete_nodes(LinkedList *l) {
-	Node *marker = l->head_;
+void delete_nodes(struct LinkedList *l) {
+	struct Node *marker = l->head_;
 	while(marker) {
-		Node *temp = marker;
+		struct Node *temp = marker;
 		free(marker);
 		--number_instantiated;
 		marker = temp->next_;
@@ -97,7 +98,7 @@ void delete_nodes(LinkedList *l) {
 
 
 int main(int argc, char **argv) {
-	LinkedList *list = malloc(LinkedList);
+	struct LinkedList *list = malloc(sizeof(struct LinkedList));
 	list->head_ = NULL;
 
 	insert(list, 1);
@@ -109,19 +110,19 @@ int main(int argc, char **argv) {
 	print(list);
 
 	printf("\nNow removing elements:\n");
-	remove(list, 4);
+	remove_item(list, 4);
 	print(list);
 	printf("\n");
 
-	remove(list, 1);
+	remove_item(list, 1);
 	print(list);
 	printf("\n");
 
-	remove(list, 2);
+	remove_item(list, 2);
 	print(list);
 	printf("\n");
 
-	remove(list, 3);
+	remove_item(list, 3);
 	print(list);
 
 	delete_nodes(list);

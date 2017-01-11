@@ -14,6 +14,6 @@ gdb can do four main kinds of things (plus other things in support of these) to 
 gdb supports C, C++, D, Go, Objective-C, Fortran, OpenCL C, Pascal, Rust, assembly, Modula-2, and Ada. Some gdb features may be used in expressions regardless of the language you use: the gdb `@` and `::` operators, and the `{type}addr` construct (see [Expressions](https://sourceware.org/gdb/current/onlinedocs/gdb/Expressions.html)) can be used with the constructs of any supported language.
 
 ##  Source Code
-To help illustrate some of the debugging principles I will use a running example of a buggy program. As you progress through this tutorial, you will use the debugger to locate and fix errors in the code. The code can be downloaded [here](src/main.cpp) and a simple Makefile for the program can be downloaded [here](src/Makefile).
+To help illustrate some of the debugging principles I will use a running example of a buggy program. As you progress through this tutorial, you will use the debugger to locate and fix errors in the code. The code can be downloaded [here](src/main.c) and a simple Makefile for the program can be downloaded [here](src/Makefile).
 
 The code is very simple and consists of two class definitions, a node and a linked list. There is also a simple driver to test the list. All of the code was placed into a single file to make illustrating the process of debugging a little easier.

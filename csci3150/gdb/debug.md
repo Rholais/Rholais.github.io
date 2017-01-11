@@ -34,10 +34,6 @@ gdb is now waitng for the user to type a command. We need to run the program so 
 
     (gdb) r
     Starting program: /home/hcli/Projects/Rholais.github.io/csci3150/gdb/src/main 
-    Creating Node, 1 are in existence right now
-    Creating Node, 2 are in existence right now
-    Creating Node, 3 are in existence right now
-    Creating Node, 4 are in existence right now
     The fully created list is:
     4
     3
@@ -45,8 +41,6 @@ gdb is now waitng for the user to type a command. We need to run the program so 
     1
 
     Now removing elements:
-    Creating Node, 5 are in existence right now
-    Destroying Node, 4 are in existence right now
     4
     3
     2
@@ -54,49 +48,102 @@ gdb is now waitng for the user to type a command. We need to run the program so 
 
 
     Program received signal SIGSEGV, Segmentation fault.
-    0x0000000000401014 in Node<int>::next (this=0x0) at main.cpp:34
-    34		Node<T>* next() const { return next_; }
-    (gdb)
+    0x00000000004007f5 in remove_item (l=0x602010, item_to_remove=1) at main.c:75
+    75			marker = marker->next_;
+    (gdb) 
 
 The program crashed so lets see what kind of information we can gather.
 
 ##  Inspecting Crashes
 
-So already we can see the that the program was at line 34 of main.cpp, that this points to `0x0`, and we can see the line of code that was executed. But we also want to know who called this method and we would like to be able to examine values in the calling methods. So at the `gdb` prompt, we type `backtrace` or `bt` which gives me the following output:
+So already we can see the that the program was at line 75 of main.cpp and we can see the line of code that was executed. But we also want to know who called this method and we would like to be able to examine values in the calling methods. So at the `gdb` prompt, we type `backtrace` or `bt` which gives me the following output:
 
-    (gdb) bt
-    #0  0x0000000000401014 in Node<int>::next (this=0x0) at main.cpp:34
-    #1  0x0000000000400f2e in LinkedList<int>::remove (this=0x614c20, item_to_remove=@0x7fffffffddfc: 1) at main.cpp:83
-    #2  0x0000000000400bd6 in main (argc=1, argv=0x7fffffffdf08) at main.cpp:126
+    #0  0x00000000004007f5 in remove_item (l=0x602010, item_to_remove=1) at main.c:75
+    #1  0x000000000040096b in main (argc=1, argv=0x7fffffffdf08) at main.c:117
+
+We can use the `frame` or `f` command using the stack frame number or the address of the frame as a parameter to select and print a stack frame and use the `print EXP` or `p EXP` command Print value of expression `EXP`. Here is what happens when I run the command:
+
+    (gdb) f 0
+    #0  0x00000000004007f5 in remove_item (l=0x602010, item_to_remove=1) at main.c:75
+    75			marker = marker->next_;
+    (gdb) p marker
+    $1 = (struct Node *) 0x0
     (gdb) 
 
-So in addition to what we knew about the current method and the local variables, we can now also see what methods called us and what their parameters were. For example, we can see that we were called by LinkedList<int>::remove () where the parameter `item_to_remove` is at address `0xffbef014`. It may help us to understand our bug if we know the value of `item_to_remove`, so we want to see the value at the address of `item_to_remove`. This can be done using the `frame` or `f` command using the stack frame number or the address of the frame as a parameter to select and print a stack frame. Then use the `print EXP` or `p EXP` command Print value of expression `EXP`. Here is what happens when I run the command:
-
-    (gdb) f 1
-    #1  0x0000000000400f2e in LinkedList<int>::remove (this=0x614c20, item_to_remove=@0x7fffffffddfc: 1) at main.cpp:83
-    83				marker = marker->next();
-    (gdb) p item_to_remove
-    $2 = (const int &) @0x7fffffffddfc: 1
-    (gdb) 
-
-So the program is crashing while trying to run `LinkedList<int>::remove` with a parameter of `1`. We have now narrowed the problem down to a specific function and a specific value for the parameter.
+So the program is crashing while trying to run `remove_item` with a parameter of `1`. We have now narrowed the problem down to a specific function and a specific value for the parameter.
 
 ##  Conditional Breakpoints
 
 Now that we know where and when the segfault is occuring, we want to watch what the program is doing right before it crashes. One way to do this is to step through, one at a time, every statement of the program until we get to the point of execution where we want to see what is happening. This works, but sometimes you may want to just run to a particular section of code and stop execution at that point so you can examine data at that location.
 If you have ever used a debugger you are probably familiar with the concept of breakpoints. Basically, a breakpoint is a line in the source code where the debugger should break execution. In our example, we want to look at the code in `LinkedList<int>::remove()` so we would want to set a breakpoint at line 58 of main.cpp. Since you may not know the exact line number, you can also tell the debugger which function to break in using `break` or `b` command. Here is what we want to type for our example:
 
-    (gdb) b LinkedList<int>::remove
-    Breakpoint 1 at 0x400dd3: file main.cpp, line 58.
+    (gdb) b remove_item
+    Breakpoint 1 at 0x4006b9: file main.c, line 41.
     (gdb) 
 
-So now Breakpoint 1 is set at main.cpp, line 58 as desired. (The reason the breakpoint gets a number is so we can refer to the breakpoint later, for example if we want to delete it.) So when the program is run, it will return control to the debugger everytime it reaches line 58.
+So now Breakpoint 1 is set at main.cpp, line 41 as desired. (The reason the breakpoint gets a number is so we can refer to the breakpoint later, for example if we want to delete it.) So when the program is run, it will return control to the debugger everytime it reaches line 41.
 
-This may not be desirable if the method is called many times but only has problems with certain values that are passed. Conditional breakpoints can help us here. For our example, we know that the program crashes when `LinkedList<int>::remove()` is called with a value of `1`. So we might want to tell the debugger to only break at line 52 if `item_to_remove` is equal to `1`. This can be done by issuing the following command:
+This may not be desirable if the method is called many times but only has problems with certain values that are passed. Conditional breakpoints can help us here. For our example, we know that the program crashes when `remove_item` is called with a value of `1`. So we might want to tell the debugger to only break at line 41 if `item_to_remove` is equal to `1`. This can be done by issuing the following command:
 
     (gdb) condition 1 item_to_remove==1
-    (gdb)
+    (gdb) 
 
 This basically says *Only break at Breakpoint 1 if the value of `item_to_remove` is 1.* Now we can run the program and know that the debugger will only break here when the specified condition is true.
+
+##  Stepping
+
+Continuing with the example above, we have set a conditional breakpoint and now want to go through this method one line at a time and see if we can locate the source of the error. This is accomplished using the step command. gdb has the nice feature that when enter is pressed without typing a command, the last command is automatically used. That way we can step through by simply tapping the enter key after the first step has been entered. Here is what this looks like:
+
+    (gdb) r
+    The program being debugged has been started already.
+    Start it from the beginning? (y or n) y
+    Starting program: /home/hcli/Projects/Rholais.github.io/csci3150/gdb/src/main 
+    The fully created list is:
+    4
+    3
+    2
+    1
+
+    Now removing elements:
+    4
+    3
+    2
+    1
+
+
+    Breakpoint 1, remove_item (l=0x602010, item_to_remove=1) at main.c:41
+    41		struct Node *marker = l->head_;
+    (gdb) step
+    42		struct Node *temp = NULL;  // temp points to one behind as we iterate
+    (gdb) 
+    44		while(marker) {
+    (gdb) 
+    45			if(marker->value_ == item_to_remove) {
+    (gdb) 
+    73			marker = NULL;  // reset the marker
+    (gdb) 
+    74			temp = marker;
+    (gdb) 
+    75			marker = marker->next_;
+    (gdb) 
+
+    Program received signal SIGSEGV, Segmentation fault.
+    0x00000000004007f5 in remove_item (l=0x602010, item_to_remove=1) at main.c:75
+    75			marker = marker->next_;
+    (gdb) 
+
+After typing `run`, `gdb` asks us if we want to restart the program, which we do. It then proceeds to run and breaks at the desired location in the program. Then we type step and proceed to hit enter to step through the program. Note that the debugger steps into functions that are called. If you don't want to do this, you can use next instead of step which otherwise has the same behavior.
+The error in the program is obvious. At line 73 `marker` is set to `NULL`, but at line 75 a member of `marker` is accessed. Since the program can't access memory location `NULL`, the seg fault occurs. In this example, nothing has to be done to `marker` and the error can be avoided by simply removing line 73 from main.c.
+
+If you look at the output from running the program, you will see first of all that the program runs without crashing, but there is a memory leak somewhere in the program. (Hint: It is in the `remove_item` function. One of the cases for remove doesn't work properly.) It is left as an exercise to the reader to use the debugger in locating and fixing this bug. (I've always wanted to say that. ;)
+
+`gdb` can be exited by typing `quit` or `q`.
+
+    (gdb) q
+    A debugging session is active.
+
+	    Inferior 1 [process 6703] will be killed.
+
+    Quit anyway? (y or n) y
 
 

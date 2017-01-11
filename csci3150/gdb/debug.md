@@ -69,4 +69,15 @@ So already we can see the that the program was at line 34 of main.cpp, that this
     #2  0x0000000000400bd6 in main (argc=1, argv=0x7fffffffdf08) at main.cpp:126
     (gdb) 
 
+So in addition to what we knew about the current method and the local variables, we can now also see what methods called us and what their parameters were. For example, we can see that we were called by LinkedList<int>::remove () where the parameter `item_to_remove` is at address `0xffbef014`. It may help us to understand our bug if we know the value of `item_to_remove`, so we want to see the value at the address of `item_to_remove`. This can be done using the `frame` or `f` command using the stack frame number or the address of the frame as a parameter to select and print a stack frame. Then use the `print EXP` or `p EXP` command Print value of expression `EXP`. Here is what happens when I run the command:
+
+    (gdb) f 1
+    #1  0x0000000000400f2e in LinkedList<int>::remove (this=0x614c20, item_to_remove=@0x7fffffffddfc: 1) at main.cpp:83
+    83				marker = marker->next();
+    (gdb) p item_to_remove
+    $2 = (const int &) @0x7fffffffddfc: 1
+    (gdb) 
+
+So the program is crashing while trying to run LinkedList<int>::remove with a parameter of 1. We have now narrowed the problem down to a specific function and a specific value for the parameter.
+
 

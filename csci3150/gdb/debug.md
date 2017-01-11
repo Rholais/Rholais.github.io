@@ -3,6 +3,7 @@
 ##  When to Use a Debugger
 
 Debugging is something that can't be avoided. Every programmer will at one point in their programming career have to debug a section of code. There are many ways to go about debugging, from printing out messages to the screen, using a debugger, or just thinking about what the program is doing and making an educated guess as to what the problem is.
+
 Before a bug can be fixed, the source of the bug must be located. For example, with segmentation faults, it is useful to know on which line of code the seg fault is occuring. Once the line of code in question has been found, it is useful to know about the values in that method, who called the method, and why (specifically) the error is occuring. Using a debugger makes finding all of this information very simple.
 
 Go ahead and make the program for this tutorial, and run the program. The program will print out some messages, and then it will print that it has received a segmentation fault signal, resulting in a program crash. Given the information on the screen at this point, it is near impossible to determine why the program crashed, much less how to fix the problem. We will now begin to debug this program.
@@ -83,12 +84,19 @@ So the program is crashing while trying to run `LinkedList<int>::remove` with a 
 ##  Conditional Breakpoints
 
 Now that we know where and when the segfault is occuring, we want to watch what the program is doing right before it crashes. One way to do this is to step through, one at a time, every statement of the program until we get to the point of execution where we want to see what is happening. This works, but sometimes you may want to just run to a particular section of code and stop execution at that point so you can examine data at that location.
-If you have ever used a debugger you are probably familiar with the concept of breakpoints. Basically, a breakpoint is a line in the source code where the debugger should break execution. In our example, we want to look at the code in `LinkedList<int>::remove ()` so we would want to set a breakpoint at line 58 of main.cpp. Since you may not know the exact line number, you can also tell the debugger which function to break in using `break` or `b` command. Here is what we want to type for our example:
+If you have ever used a debugger you are probably familiar with the concept of breakpoints. Basically, a breakpoint is a line in the source code where the debugger should break execution. In our example, we want to look at the code in `LinkedList<int>::remove()` so we would want to set a breakpoint at line 58 of main.cpp. Since you may not know the exact line number, you can also tell the debugger which function to break in using `break` or `b` command. Here is what we want to type for our example:
 
     (gdb) b LinkedList<int>::remove
     Breakpoint 1 at 0x400dd3: file main.cpp, line 58.
     (gdb) 
 
 So now Breakpoint 1 is set at main.cpp, line 58 as desired. (The reason the breakpoint gets a number is so we can refer to the breakpoint later, for example if we want to delete it.) So when the program is run, it will return control to the debugger everytime it reaches line 58.
+
+This may not be desirable if the method is called many times but only has problems with certain values that are passed. Conditional breakpoints can help us here. For our example, we know that the program crashes when `LinkedList<int>::remove()` is called with a value of `1`. So we might want to tell the debugger to only break at line 52 if `item_to_remove` is equal to `1`. This can be done by issuing the following command:
+
+    (gdb) condition 1 item_to_remove==1
+    (gdb)
+
+This basically says *Only break at Breakpoint 1 if the value of `item_to_remove` is 1.* Now we can run the program and know that the debugger will only break here when the specified condition is true.
 
 

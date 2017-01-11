@@ -1,8 +1,8 @@
-CXX = g++
+CXX = gcc
 FLAGS = -ggdb -Wall
 
-main: main.cpp
-	${CXX} ${FLAGS} -o main main.cpp
+main: main.c
+	${CXX} ${FLAGS} -o main main.c
 
 clean:
 	rm -f main

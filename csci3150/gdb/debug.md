@@ -87,6 +87,12 @@ You can refer to machine register contents, in expressions, as variables with na
 
 Names and values of all registers except floating-point and vector registers (in the current stack frame) are printed.
 
+gdb has four *standard* register names that are available (in expressions) on most machines - whenever they do not conflict with an architecture's canonical mnemonics for registers. The register names `$pc` and `$sp` are used for the program counter register and the stack pointer. `$fp` is used for a register that contains a pointer to the current stack frame, and `$ps` is used for a register that contains the processor status. For example, you could print the program counter in hex with:
+
+    (gdb) p $pc
+    $1 = (void (*)()) 0x4007f5 <remove_item+331>
+    (gdb)
+
 ##  Inspecting Crashes
 
 So already we can see the that the program was at line 75 of main.cpp and we can see the line of code that was executed. But we also want to know who called this method and we would like to be able to examine values in the calling methods. So at the `gdb` prompt, we type `backtrace` or `bt` which gives me the following output:

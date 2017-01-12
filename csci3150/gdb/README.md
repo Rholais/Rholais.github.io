@@ -11,7 +11,10 @@ gdb can do four main kinds of things (plus other things in support of these) to 
 * Change things in your program, so you can experiment with correcting the effects of one bug and go on to learn about another.
 
 ##  Supported Languages
-gdb supports C, C++, D, Go, Objective-C, Fortran, OpenCL C, Pascal, Rust, assembly, Modula-2, and Ada. Some gdb features may be used in expressions regardless of the language you use: the gdb `@` and `::` operators, and the `{type}addr` construct (see [Expressions](https://sourceware.org/gdb/current/onlinedocs/gdb/Expressions.html)) can be used with the constructs of any supported language.
+gdb supports C, C++, D, Go, Objective-C, Fortran, OpenCL C, Pascal, Rust, assembly, Modula-2, and Ada. Some gdb features may be used in expressions regardless of the language you use: the gdb `@` and `::` operators, and the `{type}addr` construct can be used with the constructs of any supported language.
+
+##  Expressions
+`print` and many other gdb commands accept an expression and compute its value. Any kind of constant, variable or operator defined by the programming language you are using is valid in an expression in gdb. This includes conditional expressions, function calls, casts, and string constants. It also includes preprocessor macros, if you compiled your program to include this information; see [Compilation](https://sourceware.org/gdb/current/onlinedocs/gdb/Compilation.html).
 
 ##  Source Code
 To help illustrate some of the debugging principles I will use a running example of a buggy program. As you progress through this tutorial, you will use the debugger to locate and fix errors in the code. The code can be downloaded [here](src/main.c) and a simple Makefile for the program can be downloaded [here](src/Makefile).

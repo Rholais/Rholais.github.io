@@ -93,6 +93,12 @@ gdb has four *standard* register names that are available (in expressions) on mo
     $1 = (void (*)()) 0x4007f5 <remove_item+331>
     (gdb)
 
+or print the instruction to be executed next with
+
+    (gdb) x $pc
+    => 0x4007f5 <remove_item+331>:	mov    0x8(%rax),%rax
+    (gdb) 
+
 ##  Inspecting Crashes
 
 So already we can see the that the program was at line 75 of main.cpp and we can see the line of code that was executed. But we also want to know who called this method and we would like to be able to examine values in the calling methods. So at the `gdb` prompt, we type `backtrace` or `bt` which gives me the following output:

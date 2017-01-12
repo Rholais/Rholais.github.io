@@ -1,6 +1,8 @@
 # GDB
 This tutorial was originally written by [Andrew Gilpin](http://www.cs.cmu.edu/~gilpin/).
 
+This lab is prepared by [LI Haocheng](https://rholais.github.io/csci3150/gdb/).
+
 The purpose of a debugger such as gdb is to allow you to see what is going on “inside” another program while it executes - or what another program was doing at the moment it crashed.
 
 gdb can do four main kinds of things (plus other things in support of these) to help you catch bugs in the act:

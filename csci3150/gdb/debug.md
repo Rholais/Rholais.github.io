@@ -54,6 +54,39 @@ gdb is now waitng for the user to type a command. We need to run the program so 
 
 The program crashed so lets see what kind of information we can gather.
 
+## Registers
+
+You can refer to machine register contents, in expressions, as variables with names starting with `$`. The names of registers are different for each machine; use `info registers` or `i r` to see the names used on your machine.
+
+    (gdb) i r
+    rax            0x0	0
+    rbx            0x0	0
+    rcx            0x7ffff7b046e0	140737348912864
+    rdx            0xa	10
+    rsi            0x1	1
+    rdi            0x602010	6299664
+    rbp            0x7fffffffddf0	0x7fffffffddf0
+    rsp            0x7fffffffddc0	0x7fffffffddc0
+    r8             0x7ffff7dd3780	140737351858048
+    r9             0x7ffff7fd1700	140737353946880
+    r10            0x1d6	470
+    r11            0x246	582
+    r12            0x400550	4195664
+    r13            0x7fffffffdf00	140737488346880
+    r14            0x0	0
+    r15            0x0	0
+    rip            0x4007f5	0x4007f5 <remove_item+331>
+    eflags         0x10206	[ PF IF RF ]
+    cs             0x33	51
+    ss             0x2b	43
+    ds             0x0	0
+    es             0x0	0
+    fs             0x0	0
+    gs             0x0	0
+    (gdb)
+
+Names and values of all registers except floating-point and vector registers (in the current stack frame) are printed.
+
 ##  Inspecting Crashes
 
 So already we can see the that the program was at line 75 of main.cpp and we can see the line of code that was executed. But we also want to know who called this method and we would like to be able to examine values in the calling methods. So at the `gdb` prompt, we type `backtrace` or `bt` which gives me the following output:

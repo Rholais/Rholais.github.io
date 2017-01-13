@@ -99,6 +99,12 @@ or print the instruction to be executed next with
     => 0x4007f5 <remove_item+331>:	mov    0x8(%rax),%rax
     (gdb) 
 
+Some machines have special registers whose contents can be interpreted in several different ways. For example, modern x86-based machines have SSE and MMX registers that can hold several values packed together in several different formats. gdb refers to such registers in `struct` notation:
+
+    (gdb) p $ymm0
+    $2 = {v8_float = {9.14767638e-41, 0, 0, 0, 0, 0, 0, 0}, v4_double = {3.2252605360516574e-319, 0, 0, 0}, v32_int8 = {0, -1, 0 <repeats 30 times>}, v16_int16 = {-256, 0 <repeats 15 times>}, v8_int32 = {65280, 0, 0, 0, 0, 0, 0, 0}, v4_int64 = {65280, 0, 0, 0}, v2_int128 = {0x0000000000000000000000000000ff00, 0x00000000000000000000000000000000}}
+    (gdb) 
+
 ##  Inspecting Crashes
 
 So already we can see the that the program was at line 75 of main.cpp and we can see the line of code that was executed. But we also want to know who called this method and we would like to be able to examine values in the calling methods. So at the `gdb` prompt, we type `backtrace` or `bt` which gives me the following output:

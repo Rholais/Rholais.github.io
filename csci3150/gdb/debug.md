@@ -91,18 +91,14 @@ gdb has four *standard* register names that are available (in expressions) on mo
 
     (gdb) p $pc
     $1 = (void (*)()) 0x4007f5 <remove_item+331>
+    (gdb) p remove_item
+    $2 = {int (struct LinkedList *, const int)} 0x4006aa <remove_item>
     (gdb)
 
-or print the instruction to be executed next with
-
-    (gdb) x $pc
-    => 0x4007f5 <remove_item+331>:	mov    0x8(%rax),%rax
-    (gdb) 
-
-Some machines have special registers whose contents can be interpreted in several different ways. For example, modern x86-based machines have SSE and MMX registers that can hold several values packed together in several different formats. gdb refers to such registers in `struct` notation:
+we can see that the current address of program is `0x4007f5` which is `331` or `0x14b` from base address of function `remove_item`. Some machines have special registers whose contents can be interpreted in several different ways. For example, modern x86-based machines have SSE and MMX registers that can hold several values packed together in several different formats. gdb refers to such registers in `struct` notation:
 
     (gdb) p $ymm0
-    $2 = {v8_float = {9.14767638e-41, 0, 0, 0, 0, 0, 0, 0}, v4_double = {3.2252605360516574e-319, 0, 0, 0}, v32_int8 = {0, -1, 0 <repeats 30 times>}, v16_int16 = {-256, 0 <repeats 15 times>}, v8_int32 = {65280, 0, 0, 0, 0, 0, 0, 0}, v4_int64 = {65280, 0, 0, 0}, v2_int128 = {0x0000000000000000000000000000ff00, 0x00000000000000000000000000000000}}
+    $3 = {v8_float = {9.14767638e-41, 0, 0, 0, 0, 0, 0, 0}, v4_double = {3.2252605360516574e-319, 0, 0, 0}, v32_int8 = {0, -1, 0 <repeats 30 times>}, v16_int16 = {-256, 0 <repeats 15 times>}, v8_int32 = {65280, 0, 0, 0, 0, 0, 0, 0}, v4_int64 = {65280, 0, 0, 0}, v2_int128 = {0x0000000000000000000000000000ff00, 0x00000000000000000000000000000000}}
     (gdb) 
 
 ##  Inspecting Crashes

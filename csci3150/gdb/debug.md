@@ -105,8 +105,10 @@ we can see that the current address of program is `0x4007f5` which is `331` or `
 
 So already we can see the that the program was at line 75 of main.cpp and we can see the line of code that was executed. But we also want to know who called this method and we would like to be able to examine values in the calling methods. So at the `gdb` prompt, we type `backtrace` or `bt` which gives me the following output:
 
+    (gdb) bt
     #0  0x00000000004007f5 in remove_item (l=0x602010, item_to_remove=1) at main.c:75
     #1  0x000000000040096b in main (argc=1, argv=0x7fffffffdf08) at main.c:117
+    (gdb)
 
 We can use the `frame` or `f` command using the stack frame number or the address of the frame as a parameter to select and print a stack frame and use the `print EXP` or `p EXP` command Print value of expression `EXP`. Here is what happens when I run the command:
 
@@ -139,7 +141,7 @@ This basically says *Only break at Breakpoint 1 if the value of `item_to_remove`
 
 ##  Stepping
 
-Continuing with the example above, we have set a conditional breakpoint and now want to go through this method one line at a time and see if we can locate the source of the error. This is accomplished using the step command. gdb has the nice feature that when enter is pressed without typing a command, the last command is automatically used. That way we can step through by simply tapping the enter key after the first step has been entered. Here is what this looks like:
+Continuing with the example above, we have set a conditional breakpoint and now want to go through this method one line at a time and see if we can locate the source of the error. This is accomplished using the `step` or `s` command. gdb has the nice feature that when enter is pressed without typing a command, the last command is automatically used. That way we can step through by simply tapping the enter key after the first step has been entered. Here is what this looks like:
 
     (gdb) r
     The program being debugged has been started already.
@@ -160,7 +162,7 @@ Continuing with the example above, we have set a conditional breakpoint and now 
 
     Breakpoint 1, remove_item (l=0x602010, item_to_remove=1) at main.c:41
     41		struct Node *marker = l->head_;
-    (gdb) step
+    (gdb) s
     42		struct Node *temp = NULL;  // temp points to one behind as we iterate
     (gdb) 
     44		while(marker) {

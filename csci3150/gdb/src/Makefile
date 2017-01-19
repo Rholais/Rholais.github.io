@@ -5,4 +5,4 @@ malloc: malloc.c
 	${CXX} ${FLAGS} -o malloc malloc.c
 
 clean:
-	rm -f main
+	rm -f malloc

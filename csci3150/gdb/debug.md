@@ -12,7 +12,7 @@ Go ahead and make the program for this tutorial, and run the program. The progra
 
 So you now have an executable file (in this case main) and you want to debug it. First you must launch the debugger. The debugger is called gdb and you can tell it which file to debug at the shell prompt. So to debug main we want to type gdb main. Here is what it looks like when I run it:
 
-    hcli@mint-VirtualBox ~/Projects/Rholais.github.io/csci3150/gdb/src $ gdb main
+    hcli@mint-VirtualBox ~/Projects/Rholais.github.io/csci3150/gdb/src $ gdb malloc
     GNU gdb (Ubuntu 7.11.1-0ubuntu1~16.04) 7.11.1
     Copyright (C) 2016 Free Software Foundation, Inc.
     License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
@@ -27,7 +27,7 @@ So you now have an executable file (in this case main) and you want to debug it.
     <http://www.gnu.org/software/gdb/documentation/>.
     For help, type "help".
     Type "apropos word" to search for commands related to "word"...
-    Reading symbols from main...done.
+    Reading symbols from malloc...done.
     (gdb) 
 
 gdb is now waitng for the user to type a command. We need to run the program so that the debugger can help us see what happens when the program crashes. Type `run` or `r` at the (gdb) prompt. Here is what happens when I run this command:

@@ -1,8 +1,8 @@
 CXX = gcc
 FLAGS = -ggdb -Wall
 
-malloc: malloc.c
-	${CXX} ${FLAGS} -o malloc malloc.c
+segfault: segfault.c
+	${CXX} ${FLAGS} -o segfault segfault.c
 
 clean:
-	rm -f malloc
+	rm -f segfault

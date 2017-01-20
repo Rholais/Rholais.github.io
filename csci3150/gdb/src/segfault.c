@@ -3,7 +3,7 @@
 
 int main(int argc, char **argv)
 {
-    char *buf;
+    char *buf = NULL;
 
     buf = malloc(1<<31);
 

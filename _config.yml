@@ -5,3 +5,9 @@ locale                   : "en-US"
 title                    : "Haocheng Li"
 title_separator          : "-"
 name                     : "Haocheng Li"
+description              : "Software Engineering Intern at Cadence Design Systems"
+url                      : "https://haocheng.li"
+
+plugins:
+  - jekyll-seo-tag
+  

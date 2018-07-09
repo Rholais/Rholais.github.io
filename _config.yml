@@ -9,7 +9,7 @@ description              : "Software Engineering Intern at Cadence Design System
 url                      : "https://haocheng.li"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "Rholais/Rholais.github.io"
-teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
+teaser                   : "/assets/images/grass.jpg"
 
 # Site Author
 author:

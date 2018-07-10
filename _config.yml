@@ -62,6 +62,9 @@ google:
   search_engine_id       : # YOUR_SEARCH_ENGINE_ID
   instant_search         : # false (default), true
   
+# SEO Related
+google_site_verification : 9KmXYXcecTa7JLhiAh6fGl_DidyLDrCWCN-iVvbC-X4
+
 # Site Author
 author:
   name                   : "Haocheng Li"

@@ -5,7 +5,7 @@ locale                   : "en-US"
 title                    : "Haocheng Li"
 title_separator          : "-"
 name                     : "Haocheng Li"
-description              : "Software Engineering Intern at Cadence Design Systems"
+description              : "PhD Candidate at The Chinese University of Hong Kong"
 url                      : "https://haocheng.li"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "Rholais/Rholais.github.io"
@@ -70,7 +70,7 @@ yandex_site_verification : e23a8c5e452b77f7
 # Site Author
 author:
   name                   : "Haocheng Li"
-  avatar                 : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar                 : "/assets/images/bio-photo.jpg"
 
 # Defaults
 defaults:

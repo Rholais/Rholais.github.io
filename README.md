@@ -22,7 +22,7 @@ My research interests include electronic design automation, hardware security, a
 * [Routability-Driven and Fence-Aware Legalization for Mixed-Cell-Height Circuits](https://doi.org/10.1145/3195970.3196107)
   * **Haocheng Li**, Wing-Kai Chow, Gengjie Chen, Evangeline F. Y. Young, and Bei Yu
   * The 55th ACM/IEEE Design Automation Conference, June 24-29, 2018, San Francisco, CA, USA (*DAC 2018*)
-* [A Two-Step Search Engine For Large Scale Boolean Matching Under NP3 Equivalence](https://doi.org/10.1109/ASPDAC.2018.8297387)
+* [A Two-Step Search Engine For Large Scale Boolean Matching Under NP3 Equivalence](https://doi.org/10.1109/ASPDAC.2018.8297387) [[paper](https://chengengjie.github.io/papers/C6-ASPDAC18-NP3.pdf)]
   * Chak-Wa Pui, Peishan Tu, **Haocheng Li**, Gengjie Chen, and Evangeline F. Y. Young
   * The 23rd IEEE/ACM Asia and South Pacific Design Automation Conference, Jan. 22-25, 2018, Jeju Island, Korea
     (*ASPDAC 2018*)

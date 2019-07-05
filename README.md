@@ -17,6 +17,8 @@ My research interests include electronic design automation, hardware security, a
     and Ozgur Sinanoglu 
   * The 56th ACM/IEEE Design Automation Conference, June 2-6, 2019, Las Vegas, NV, USA (*DAC 2019*)
 * [Detailed Routing by Sparse Grid Graph and Minimum-Area-Captured Path Search](https://doi.org/10.1145/3287624.3287678)
+  [[paper](https://chengengjie.github.io/papers/C8-ASPDAC19-DrCU.pdf)]
+  [[slides](https://chengengjie.github.io/papers/C8-ASPDAC19-DrCU-slides.pdf)]
   * Gengjie Chen, Chak-Wa Pui, **Haocheng Li**, Jingsong Chen, Bentian Jiang, and Evangeline F. Y. Young
   * The 24th IEEE/ACM Asia and South Pacific Design Automation Conference, Jan. 21-24, 2019, Tokyo, Japan (*ASPDAC 2019*)
 * [Routability-Driven and Fence-Aware Legalization for Mixed-Cell-Height Circuits](https://doi.org/10.1145/3195970.3196107)

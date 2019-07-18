@@ -36,7 +36,7 @@ My research interests include electronic design automation, hardware security, a
   * The 23rd IEEE/ACM Asia and South Pacific Design Automation Conference, Jan. 22-25, 2018, Jeju Island, Korea
     (*ASPDAC 2018*)
 * [Bilinear Lithography Hotspot Detection](http://dx.doi.org/10.1145/3036669.3036673)
-  [[paper](http://appsrv.cse.cuhk.edu.hk/~hzhang/papers/BilinearHSD_preprint.pdf)]
+  [[paper](/assets/docs/c1-ispd17-hsd.pdf)]
   [[slides](http://appsrv.cse.cuhk.edu.hk/~hzhang/slides/ISPD2017_Zhang.pdf)]
   * Hang Zhang, Fengyuan Zhu, **Haocheng Li**, Evangeline F. Y. Young, and Bei Yu
   * The 26th ACM International Symposium on Physical Design, Mar. 19-22, 2017, Portland, OR, USA (*ISPD 2017*)

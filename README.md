@@ -26,7 +26,7 @@ My research interests include electronic design automation, hardware security, a
   * The 24th IEEE/ACM Asia and South Pacific Design Automation Conference, Jan. 21-24, 2019, Tokyo, Japan (*ASPDAC 2019*)
 * [Routability-Driven and Fence-Aware Legalization for Mixed-Cell-Height Circuits](https://doi.org/10.1145/3195970.3196107)
   [[paper](/assets/docs/c3-dac18-ripplelg.pdf)]
-  [[slides](https://chengengjie.github.io/papers/C7-DAC18-RippleLG-slides.pdf)]
+  [[slides](/assets/docs/c3-dac18-ripplelg-slides.pdf)]
   [[poster](https://chengengjie.github.io/papers/C7-DAC18-RippleLG-poster.pdf)]
   * **Haocheng Li**, Wing-Kai Chow, Gengjie Chen, Evangeline F. Y. Young, and Bei Yu
   * The 55th ACM/IEEE Design Automation Conference, June 24-29, 2018, San Francisco, CA, USA (*DAC 2018*)

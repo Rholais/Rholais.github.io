@@ -14,7 +14,7 @@ My research interests include electronic design automation, hardware security, a
   * The 38th IEEE/ACM International Conference on Computer-Aided Design, Nov. 4-7, 2019, Westminster, CO, USA (*ICCAD 2019*)
 * [Attacking Split Manufacturing from a Deep Learning Perspective](https://doi.org/10.1145/3316781.3317780)
   [[paper](/assets/docs/c5-dac2019-attackspm.pdf)]
-  [[slides](http://www.cse.cuhk.edu.hk/~byu/papers/C81-DAC2019-AttackSPM-slides.pdf)]
+  [[slides](/assets/docs/c5-dac2019-attackspm-slides.pdf)]
   [[poster](http://www.cse.cuhk.edu.hk/~byu/papers/C81-DAC2019-AttackSPM-poster.pdf)]
   * **Haocheng Li**, Satwik Patnaik, Abhrajit Sengupta, Haoyu Yang, Knechtel Johann, Bei Yu, Evangeline F. Y. Young,
     and Ozgur Sinanoglu 

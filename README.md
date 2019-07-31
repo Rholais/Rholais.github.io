@@ -15,7 +15,7 @@ My research interests include electronic design automation, hardware security, a
 * [Attacking Split Manufacturing from a Deep Learning Perspective](https://doi.org/10.1145/3316781.3317780)
   [[paper](/assets/docs/c5-dac2019-attackspm.pdf)]
   [[slides](/assets/docs/c5-dac2019-attackspm-slides.pdf)]
-  [[poster](http://www.cse.cuhk.edu.hk/~byu/papers/C81-DAC2019-AttackSPM-poster.pdf)]
+  [[poster](/assets/docs/c5-dac2019-attackspm-poster.pdf)]
   * **Haocheng Li**, Satwik Patnaik, Abhrajit Sengupta, Haoyu Yang, Knechtel Johann, Bei Yu, Evangeline F. Y. Young,
     and Ozgur Sinanoglu 
   * The 56th ACM/IEEE Design Automation Conference, June 2-6, 2019, Las Vegas, NV, USA (*DAC 2019*)

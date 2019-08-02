@@ -22,6 +22,7 @@ My research interests include electronic design automation, hardware security, a
 * [Detailed Routing by Sparse Grid Graph and Minimum-Area-Captured Path Search](https://doi.org/10.1145/3287624.3287678)
   [[paper](/assets/docs/c4-aspdac19-drcu.pdf)]
   [[slides](/assets/docs/c4-aspdac19-drcu-slides.pdf)]
+  [[code](https://github.com/cuhk-eda/dr-cu)]
   * Gengjie Chen, Chak-Wa Pui, **Haocheng Li**, Jingsong Chen, Bentian Jiang, and Evangeline F. Y. Young
   * The 24th IEEE/ACM Asia and South Pacific Design Automation Conference, Jan. 21-24, 2019, Tokyo, Japan (*ASPDAC 2019*)
 * [Routability-Driven and Fence-Aware Legalization for Mixed-Cell-Height Circuits](https://doi.org/10.1145/3195970.3196107)

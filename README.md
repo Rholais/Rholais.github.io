@@ -42,3 +42,5 @@ My research interests include electronic design automation, hardware security, a
   * Hang Zhang, Fengyuan Zhu, **Haocheng Li**, Evangeline F. Y. Young, and Bei Yu
   * The 26th ACM International Symposium on Physical Design, Mar. 19-22, 2017, Portland, OR, USA (*ISPD 2017*)
     **Best Paper Award**
+
+### Journal Articles

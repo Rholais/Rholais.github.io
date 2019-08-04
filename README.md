@@ -44,3 +44,4 @@ My research interests include electronic design automation, hardware security, a
     **Best Paper Award**
 
 ### Journal Articles
+* [A Novel Method of Micro-Tomography Geometric Angle Calibration with Random Phantom](https://content.iospress.com/articles/journal-of-x-ray-science-and-technology/xst16178)

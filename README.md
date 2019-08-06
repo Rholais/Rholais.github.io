@@ -46,3 +46,4 @@ My research interests include electronic design automation, hardware security, a
 ### Journal Articles
 * [A Novel Method of Micro-Tomography Geometric Angle Calibration with Random Phantom](https://content.iospress.com/articles/journal-of-x-ray-science-and-technology/xst16178)
   * **Haocheng Li**, Wei Hong, Yu Liu, and Xuanqin Mou
+  * Journal of X-Ray Science and Technology, vol. 25, no. 4, pp. 641-652, 2017

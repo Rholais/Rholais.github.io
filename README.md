@@ -44,6 +44,7 @@ My research interests include electronic design automation, hardware security, a
     **Best Paper Award**
 
 ### Journal Articles
+* [Dr. CU: Detailed Routing by Sparse Grid Graph and Minimum-Area-Captured Path Search](https://doi.org/10.1109/TCAD.2019.2927542)
 * [A Novel Method of Micro-Tomography Geometric Angle Calibration with Random Phantom](https://content.iospress.com/articles/journal-of-x-ray-science-and-technology/xst16178)
   * **Haocheng Li**, Wei Hong, Yu Liu, and Xuanqin Mou
   * Journal of X-Ray Science and Technology, vol. 25, no. 4, pp. 641-652, 2017

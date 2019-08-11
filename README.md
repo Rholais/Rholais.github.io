@@ -48,5 +48,6 @@ My research interests include electronic design automation, hardware security, a
   * Gengjie Chen, Chak-Wa Pui, **Haocheng Li**, and Evangeline F. Y. Young
   * IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems, early access (*TCAD*)
 * [A Novel Method of Micro-Tomography Geometric Angle Calibration with Random Phantom](https://content.iospress.com/articles/journal-of-x-ray-science-and-technology/xst16178)
+[[paper](/assets/docs/j1-xst17-cbct.pdf)]
   * **Haocheng Li**, Wei Hong, Yu Liu, and Xuanqin Mou
   * Journal of X-Ray Science and Technology, vol. 25, no. 4, pp. 641-652, 2017

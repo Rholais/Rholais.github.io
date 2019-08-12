@@ -51,3 +51,5 @@ My research interests include electronic design automation, hardware security, a
 [[paper](/assets/docs/j1-xst17-cbct.pdf)]
   * **Haocheng Li**, Wei Hong, Yu Liu, and Xuanqin Mou
   * Journal of X-Ray Science and Technology, vol. 25, no. 4, pp. 641-652, 2017
+
+## Awards

@@ -53,3 +53,4 @@ My research interests include electronic design automation, hardware security, a
   * Journal of X-Ray Science and Technology, vol. 25, no. 4, pp. 641-652, 2017
 
 ## Awards
+* First Place at ISPD 2019 Contest on [Initial Detailed Routing](http://www.ispd.cc/contests/19)

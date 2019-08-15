@@ -53,5 +53,6 @@ My research interests include electronic design automation, hardware security, a
   * Journal of X-Ray Science and Technology, vol. 25, no. 4, pp. 641-652, 2017
 
 ## Awards
-* First Place at [ISPD 2019 Contest](http://www.ispd.cc/contests/19) on Initial Detailed Routing
-* Second Place at [ISPD 2018 Contest](http://www.ispd.cc/contests/18) on Initial Detailed Routing
+* First Place at [ISPD 2019 Contest](http://www.ispd.cc/contests/19) on *Initial Detailed Routing*
+* Second Place at [ISPD 2018 Contest](http://www.ispd.cc/contests/18) on *Initial Detailed Routing*
+* First Place at [ICCAD 2016 Contest](http://cad-contest-2016.el.cycu.edu.tw/CAD-contest-at-ICCAD2016) on *Non-Exact Projective NPNP Boolean Matching*

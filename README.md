@@ -59,3 +59,4 @@ My research interests include electronic design automation, hardware security, a
 * National Scholarship in 2013
 
 ## Experiences
+* Software Engineer Intern at [Cadence Design Systems](https://www.cadence.com)

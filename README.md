@@ -13,9 +13,9 @@ My research interests include electronic design automation, hardware security, a
   * **Haocheng Li**, Gengjie Chen, Bentian Jiang, Jingsong Chen, and Evangeline F. Y. Young
   * The 38th IEEE/ACM International Conference on Computer-Aided Design, Nov. 4-7, 2019, Westminster, CO, USA (*ICCAD 2019*)
 * [Attacking Split Manufacturing from a Deep Learning Perspective](https://doi.org/10.1145/3316781.3317780)
-  [[paper](/assets/docs/c5-dac2019-attackspm.pdf)]
-  [[slides](/assets/docs/c5-dac2019-attackspm-slides.pdf)]
-  [[poster](/assets/docs/c5-dac2019-attackspm-poster.pdf)]
+  [[paper](/assets/docs/c5-dac19-attackspm.pdf)]
+  [[slides](/assets/docs/c5-dac19-attackspm-slides.pdf)]
+  [[poster](/assets/docs/c5-dac19-attackspm-poster.pdf)]
   * **Haocheng Li**, Satwik Patnaik, Abhrajit Sengupta, Haoyu Yang, Knechtel Johann, Bei Yu, Evangeline F. Y. Young,
     and Ozgur Sinanoglu 
   * The 56th ACM/IEEE Design Automation Conference, June 2-6, 2019, Las Vegas, NV, USA (*DAC 2019*)

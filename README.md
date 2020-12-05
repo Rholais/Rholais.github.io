@@ -8,9 +8,10 @@ My research interests include electronic design automation, hardware security, a
 
 ## Publications
 ### Conference Proceedings
-* Dr. CU 2.0: A Scalable Detailed Routing Framework with Correct-by-Construction Design Rule Satisfaction
+* [Dr. CU 2.0: A Scalable Detailed Routing Framework with Correct-by-Construction Design Rule Satisfaction](https://doi.org/10.1109/ICCAD45719.2019.8942074)
   [[preprint](/assets/docs/c6-iccad19-drcu2.pdf)]
   [[slides](/assets/docs/c6-iccad19-drcu2-slides.pdf)]
+  [[code](https://github.com/cuhk-eda/dr-cu)]
   * **Haocheng Li**, Gengjie Chen, Bentian Jiang, Jingsong Chen, and Evangeline F.Y. Young
   * The 38th IEEE/ACM International Conference on Computer-Aided Design, Nov. 4-7, 2019, Westminster, CO, USA (*ICCAD 2019*)
 * [Attacking Split Manufacturing from a Deep Learning Perspective](https://doi.org/10.1145/3316781.3317780)
@@ -46,6 +47,7 @@ My research interests include electronic design automation, hardware security, a
 
 ### Journal Articles
 * [Dr. CU: Detailed Routing by Sparse Grid Graph and Minimum-Area-Captured Path Search](https://doi.org/10.1109/TCAD.2019.2927542)
+  [[code](https://github.com/cuhk-eda/dr-cu)]
   * Gengjie Chen, Chak-Wa Pui, **Haocheng Li**, and Evangeline F.Y. Young
   * IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems, early access (*TCAD*)
 * [A Novel Method of Micro-Tomography Geometric Angle Calibration with Random Phantom](https://content.iospress.com/articles/journal-of-x-ray-science-and-technology/xst16178)

@@ -7,6 +7,17 @@ I obtained my B.Eng. degree in Information Engineering from the Honors Youth Pro
 My research interests include electronic design automation, hardware security, and combinatorial optimization.
 
 ## Publications
+### Journal Articles
+* [Dr. CU: Detailed Routing by Sparse Grid Graph and Minimum-Area-Captured Path Search](https://doi.org/10.1109/TCAD.2019.2927542)
+  [[preprint](https://chengengjie.github.io/papers/J3-TCAD20-DrCU.pdf)]
+  [[code](https://github.com/cuhk-eda/dr-cu)]
+  * Gengjie Chen, Chak-Wa Pui, **Haocheng Li**, and Evangeline F.Y. Young
+  * IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems, early access (*TCAD*)
+* [A Novel Method of Micro-Tomography Geometric Angle Calibration with Random Phantom](https://content.iospress.com/articles/journal-of-x-ray-science-and-technology/xst16178)
+  [[preprint](/assets/docs/j1-xst17-cbct.pdf)]
+  * **Haocheng Li**, Wei Hong, Yu Liu, and Xuanqin Mou
+  * Journal of X-Ray Science and Technology, vol. 25, no. 4, pp. 641-652, 2017
+
 ### Conference Proceedings
 * [Dr. CU 2.0: A Scalable Detailed Routing Framework with Correct-by-Construction Design Rule Satisfaction](https://doi.org/10.1109/ICCAD45719.2019.8942074)
   [[preprint](/assets/docs/c6-iccad19-drcu2.pdf)]
@@ -18,6 +29,8 @@ My research interests include electronic design automation, hardware security, a
   [[preprint](/assets/docs/c5-dac19-attackspm.pdf)]
   [[slides](/assets/docs/c5-dac19-attackspm-slides.pdf)]
   [[poster](/assets/docs/c5-dac19-attackspm-poster.pdf)]
+  [[code](https://github.com/cuhk-eda/split-extract)]
+  [[code](https://github.com/cuhk-eda/split-attack)]
   * **Haocheng Li**, Satwik Patnaik, Abhrajit Sengupta, Haoyu Yang, Knechtel Johann, Bei Yu, Evangeline F.Y. Young,
     and Ozgur Sinanoglu 
   * The 56th ACM/IEEE Design Automation Conference, June 2-6, 2019, Las Vegas, NV, USA (*DAC 2019*)
@@ -44,16 +57,6 @@ My research interests include electronic design automation, hardware security, a
   * Hang Zhang, Fengyuan Zhu, **Haocheng Li**, Evangeline F.Y. Young, and Bei Yu
   * The 26th ACM International Symposium on Physical Design, Mar. 19-22, 2017, Portland, OR, USA (*ISPD 2017*)
     **Best Paper Award**
-
-### Journal Articles
-* [Dr. CU: Detailed Routing by Sparse Grid Graph and Minimum-Area-Captured Path Search](https://doi.org/10.1109/TCAD.2019.2927542)
-  [[code](https://github.com/cuhk-eda/dr-cu)]
-  * Gengjie Chen, Chak-Wa Pui, **Haocheng Li**, and Evangeline F.Y. Young
-  * IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems, early access (*TCAD*)
-* [A Novel Method of Micro-Tomography Geometric Angle Calibration with Random Phantom](https://content.iospress.com/articles/journal-of-x-ray-science-and-technology/xst16178)
-[[preprint](/assets/docs/j1-xst17-cbct.pdf)]
-  * **Haocheng Li**, Wei Hong, Yu Liu, and Xuanqin Mou
-  * Journal of X-Ray Science and Technology, vol. 25, no. 4, pp. 641-652, 2017
 
 ## Awards
 * First Place at [ISPD 2019 Contest](http://www.ispd.cc/contests/19) on *Initial Detailed Routing*

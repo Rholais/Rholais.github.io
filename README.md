@@ -1,3 +1,5 @@
+# Biography
+
 [I](/assets/docs/cv.pdf) obtained my Ph.D. degree in [Computer Science and Engineering](https://www.cse.cuhk.edu.hk) from
 [The Chinese University of Hong Kong](http://www.cuhk.edu.hk) in 2020,
 supervised by [Prof. Evangeline F.Y. Young](http://www.cse.cuhk.edu.hk/~fyyoung/).
@@ -9,7 +11,7 @@ My research interests include electronic design automation, hardware security, a
 ## Publications
 ### Journal Articles
 * [Dr. CU: Detailed Routing by Sparse Grid Graph and Minimum-Area-Captured Path Search](https://doi.org/10.1109/TCAD.2019.2927542)
-  [[preprint](https://chengengjie.github.io/papers/J3-TCAD20-DrCU.pdf)]
+  [[preprint](/assets/docs/j2-tcad20-drcu.pdf)]
   [[code](https://github.com/cuhk-eda/dr-cu)]
   * Gengjie Chen, Chak-Wa Pui, **Haocheng Li**, and Evangeline F.Y. Young
   * IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems, early access (*TCAD*)

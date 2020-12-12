@@ -23,6 +23,7 @@ My research interests include electronic design automation, hardware security, a
   * Journal of X-Ray Science and Technology, vol. 25, no. 4, pp. 641-652, 2017
 
 ### Conference Proceedings
+
 * [Dr. CU 2.0: A Scalable Detailed Routing Framework with Correct-by-Construction Design Rule Satisfaction](https://doi.org/10.1109/ICCAD45719.2019.8942074)
   [[preprint](/assets/docs/c6-iccad19-drcu2.pdf)]
   [[slides](/assets/docs/c6-iccad19-drcu2-slides.pdf)]

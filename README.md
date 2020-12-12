@@ -11,6 +11,7 @@ My research interests include electronic design automation, hardware security, a
 ## Publications
 
 ### Journal Articles
+
 * [Dr. CU: Detailed Routing by Sparse Grid Graph and Minimum-Area-Captured Path Search](https://doi.org/10.1109/TCAD.2019.2927542)
   [[preprint](/assets/docs/j2-tcad20-drcu.pdf)]
   [[code](https://github.com/cuhk-eda/dr-cu)]

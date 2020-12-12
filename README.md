@@ -1,4 +1,4 @@
-# Biography
+# Ni Hao 👋
 
 [I](/assets/docs/cv.pdf) obtained my Ph.D. degree in [Computer Science and Engineering](https://www.cse.cuhk.edu.hk) from
 [The Chinese University of Hong Kong](http://www.cuhk.edu.hk) in 2020,
@@ -9,6 +9,7 @@ I obtained my B.Eng. degree in Information Engineering from the Honors Youth Pro
 My research interests include electronic design automation, hardware security, and combinatorial optimization.
 
 ## Publications
+
 ### Journal Articles
 * [Dr. CU: Detailed Routing by Sparse Grid Graph and Minimum-Area-Captured Path Search](https://doi.org/10.1109/TCAD.2019.2927542)
   [[preprint](/assets/docs/j2-tcad20-drcu.pdf)]

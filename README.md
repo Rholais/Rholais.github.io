@@ -12,11 +12,16 @@ My research interests include electronic design automation, hardware security, a
 
 ### Journal Articles
 
+* [Deep Learning Analysis for Split Manufactured Layouts with Routing Perturbation](https://doi.org/10.1109/TCAD.2020.3037297)
+  [[code](https://github.com/cuhk-eda/split-extract)]
+  [[code](https://github.com/cuhk-eda/split-attack)]
+  * **Haocheng Li**, Satwik Patnaik, Mohammed Ashraf, Haoyu Yang, Johann Knechtel, Bei Yu, Ozgur Sinanoglu, Evangeline F.Y. Young
+  * IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems, early access (*TCAD*)
 * [Dr. CU: Detailed Routing by Sparse Grid Graph and Minimum-Area-Captured Path Search](https://doi.org/10.1109/TCAD.2019.2927542)
   [[preprint](/assets/docs/j2-tcad20-drcu.pdf)]
   [[code](https://github.com/cuhk-eda/dr-cu)]
   * Gengjie Chen, Chak-Wa Pui, **Haocheng Li**, and Evangeline F.Y. Young
-  * IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems, early access (*TCAD*)
+  * IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems, vol. 39, no. 9, pp. 1902–1915, 2020 (*TCAD*)
 * [A Novel Method of Micro-Tomography Geometric Angle Calibration with Random Phantom](https://content.iospress.com/articles/journal-of-x-ray-science-and-technology/xst16178)
   [[preprint](/assets/docs/j1-xst17-cbct.pdf)]
   * **Haocheng Li**, Wei Hong, Yu Liu, and Xuanqin Mou
@@ -64,6 +69,7 @@ My research interests include electronic design automation, hardware security, a
     **Best Paper Award**
 
 ## Awards
+
 * First Place at [ISPD 2019 Contest](http://www.ispd.cc/contests/19) on *Initial Detailed Routing*
 * Second Place at [ISPD 2018 Contest](http://www.ispd.cc/contests/18) on *Initial Detailed Routing*
 * First Place at [ICCAD 2016 Contest](http://cad-contest-2016.el.cycu.edu.tw/CAD-contest-at-ICCAD2016) on *Non-Exact Projective NPNP Boolean Matching*

@@ -13,6 +13,7 @@ My research interests include electronic design automation, hardware security, a
 ### Journal Articles
 
 * [Deep Learning Analysis for Split Manufactured Layouts with Routing Perturbation](https://doi.org/10.1109/TCAD.2020.3037297)
+  [[preprint](/assets/docs/j3-tcad20-attackspm.pdf)]
   [[code](https://github.com/cuhk-eda/split-extract)]
   [[code](https://github.com/cuhk-eda/split-attack)]
   * **Haocheng Li**, Satwik Patnaik, Mohammed Ashraf, Haoyu Yang, Johann Knechtel, Bei Yu, Ozgur Sinanoglu, Evangeline F.Y. Young
@@ -76,4 +77,5 @@ My research interests include electronic design automation, hardware security, a
 * National Scholarship in 2013
 
 ## Experiences
+
 * Software Engineer Intern at [Cadence Design Systems](https://www.cadence.com)

@@ -18,6 +18,7 @@ My research interests include electronic design automation, hardware security, a
   * Satwik Patnaik, Mohammed Ashraf, **Haocheng Li**, Johann Knechtel, Ozgur Sinanoglu
   * IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems, early access (*TCAD*)
 * [Pin-Accessible Legalization for Mixed-Cell-Height Circuits](https://doi.org/10.1109/TCAD.2021.3053223)
+  [[code](https://github.com/cuhk-eda/ripple)]
   * **Haocheng Li**, Wing-Kai Chow, Gengjie Chen, Bei Yu, Evangeline F.Y. Young
   * IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems, early access (*TCAD*)
 * [Deep Learning Analysis for Split Manufactured Layouts with Routing Perturbation](https://doi.org/10.1109/TCAD.2020.3037297)
@@ -63,6 +64,7 @@ My research interests include electronic design automation, hardware security, a
   [[preprint](/assets/docs/c3-dac18-ripplelg.pdf)]
   [[slides](/assets/docs/c3-dac18-ripplelg-slides.pdf)]
   [[poster](/assets/docs/c3-dac18-ripplelg-poster.pdf)]
+  [[code](https://github.com/cuhk-eda/ripple)]
   * **Haocheng Li**, Wing-Kai Chow, Gengjie Chen, Evangeline F.Y. Young, and Bei Yu
   * The 55th ACM/IEEE Design Automation Conference, June 24-29, 2018, San Francisco, CA, USA (*DAC 2018*)
 * [A Two-Step Search Engine For Large Scale Boolean Matching Under NP3 Equivalence](https://doi.org/10.1109/ASPDAC.2018.8297387)

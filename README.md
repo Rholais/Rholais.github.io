@@ -18,6 +18,7 @@ My research interests include electronic design automation, hardware security, a
   * Satwik Patnaik, Mohammed Ashraf, **Haocheng Li**, Johann Knechtel, Ozgur Sinanoglu
   * IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems, early access (*TCAD*)
 * [Pin-Accessible Legalization for Mixed-Cell-Height Circuits](https://doi.org/10.1109/TCAD.2021.3053223)
+  [[preprint](/assets/docs/j4-tcad21-ripplelg.pdf)]
   [[code](https://github.com/cuhk-eda/ripple)]
   * **Haocheng Li**, Wing-Kai Chow, Gengjie Chen, Bei Yu, Evangeline F.Y. Young
   * IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems, early access (*TCAD*)

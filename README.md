@@ -13,6 +13,7 @@ My research interests include electronic design automation, hardware security, a
 ### Journal Articles
 
 * [Concerted wire lifting: Enabling secure and cost-effective split manufacturing](https://doi.org/10.1109/TCAD.2021.3056379)
+  [[preprint](/assets/docs/j5-tcad21-attackspm.pdf)]
   [[code](https://github.com/cuhk-eda/split-extract)]
   [[code](https://github.com/cuhk-eda/split-attack)]
   * Satwik Patnaik, Mohammed Ashraf, **Haocheng Li**, Johann Knechtel, Ozgur Sinanoglu

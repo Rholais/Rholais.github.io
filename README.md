@@ -24,11 +24,11 @@ My research interests include electronic design automation, hardware security, a
   * **Haocheng Li**, Wing-Kai Chow, Gengjie Chen, Bei Yu, Evangeline F.Y. Young
   * IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems, early access (*TCAD*)
 * [Deep Learning Analysis for Split Manufactured Layouts with Routing Perturbation](https://doi.org/10.1109/TCAD.2020.3037297)
-  [[preprint](/assets/docs/j3-tcad20-attackspm.pdf)]
+  [[preprint](/assets/docs/j3-tcad21-attackspm.pdf)]
   [[code](https://github.com/cuhk-eda/split-extract)]
   [[code](https://github.com/cuhk-eda/split-attack)]
   * **Haocheng Li**, Satwik Patnaik, Mohammed Ashraf, Haoyu Yang, Johann Knechtel, Bei Yu, Ozgur Sinanoglu, Evangeline F.Y. Young
-  * IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems, early access (*TCAD*)
+  * IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems, vol. 40, no. 10, pp 1995-2008, 2021 (*TCAD*)
 * [Dr. CU: Detailed Routing by Sparse Grid Graph and Minimum-Area-Captured Path Search](https://doi.org/10.1109/TCAD.2019.2927542)
   [[preprint](/assets/docs/j2-tcad20-drcu.pdf)]
   [[code](https://github.com/cuhk-eda/dr-cu)]
@@ -80,6 +80,12 @@ My research interests include electronic design automation, hardware security, a
   * Hang Zhang, Fengyuan Zhu, **Haocheng Li**, Evangeline F.Y. Young, and Bei Yu
   * The 26th ACM International Symposium on Physical Design, Mar. 19-22, 2017, Portland, OR, USA (*ISPD 2017*)
     **Best Paper Award**
+
+### Dissertation
+
+* Advanced Node Physical Design, Attack and Anti-attack [[preprint](/assets/docs/thesis.pdf)]
+  * **Haocheng Li**
+  * Ph.D., The Chinese University of Hong Kong, Jul., 2020, Sha Tin, NT, Hong Kong
 
 ## Awards
 

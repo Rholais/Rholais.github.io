@@ -83,7 +83,8 @@ My research interests include electronic design automation, hardware security, a
 
 ### Dissertation
 
-* Advanced Node Physical Design, Attack and Anti-attack [[preprint](/assets/docs/thesis.pdf)]
+* [Advanced Node Physical Design, Attack and Anti-attack](https://repository.lib.cuhk.edu.hk/item/cuhk-2627808)
+  [[preprint](/assets/docs/thesis.pdf)]
   * **Haocheng Li**
   * Ph.D., The Chinese University of Hong Kong, Jul., 2020, Sha Tin, NT, Hong Kong
 

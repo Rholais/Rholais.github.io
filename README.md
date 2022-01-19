@@ -17,12 +17,12 @@ My research interests include electronic design automation, hardware security, a
   [[code](https://github.com/cuhk-eda/split-extract)]
   [[code](https://github.com/cuhk-eda/split-attack)]
   * Satwik Patnaik, Mohammed Ashraf, **Haocheng Li**, Johann Knechtel, Ozgur Sinanoglu
-  * IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems, early access (*TCAD*)
+  * IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems, vol. 41, no. 2, pp 266-280, 2022 (*TCAD*)
 * [Pin-Accessible Legalization for Mixed-Cell-Height Circuits](https://doi.org/10.1109/TCAD.2021.3053223)
   [[preprint](/assets/docs/j4-tcad21-ripplelg.pdf)]
   [[code](https://github.com/cuhk-eda/ripple)]
   * **Haocheng Li**, Wing-Kai Chow, Gengjie Chen, Bei Yu, Evangeline F.Y. Young
-  * IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems, early access (*TCAD*)
+  * IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems, vol. 41, no. 1, pp 143-154, 2022 (*TCAD*)
 * [Deep Learning Analysis for Split Manufactured Layouts with Routing Perturbation](https://doi.org/10.1109/TCAD.2020.3037297)
   [[preprint](/assets/docs/j3-tcad21-attackspm.pdf)]
   [[code](https://github.com/cuhk-eda/split-extract)]

@@ -62,8 +62,6 @@ google:
   search_engine_id       : # YOUR_SEARCH_ENGINE_ID
   instant_search         : # false (default), true
 
-google_analytics         : G-1NRTVRPWBD
-
 # SEO Related
 google_site_verification : 9KmXYXcecTa7JLhiAh6fGl_DidyLDrCWCN-iVvbC-X4
 bing_site_verification   : 2A178D095FA4EF398A12C29D038A3DCC
